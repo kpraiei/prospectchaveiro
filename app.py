@@ -1,4 +1,8 @@
-from flask import Flask, render_template_string
+import os
+import json
+from datetime import datetime
+from flask import Flask, render_template_string, request, jsonify, abort
+from engine.generator import generate_landing_page, clean_phone
 
 app = Flask(__name__, static_url_path='/assets', static_folder='assets')
 
@@ -1125,8 +1129,260 @@ def home():
 
 @app.route("/papicarte")
 def papicarte():
-    with open("papicarte.html", "r", encoding="utf-8") as f:
-        return f.read()
+    if os.path.exists("papicarte.html"):
+        with open("papicarte.html", "r", encoding="utf-8") as f:
+            return f.read()
+    return "Página não encontrada", 404
+
+# --- INTEGRAÇÃO API / WEBHOOK DO KRIAR.DIGITAL ---
+
+@app.route("/api/webhook/prospect", methods=["POST"])
+def webhook_prospect():
+    """
+    Endpoint consumido pelo Scraper Google Maps do SaaS kriar.digital.
+    Recebe os dados do lead minerado e gera automaticamente:
+    1. A Landing Page completa e responsiva em demos/<slug>.html
+    2. A URL de demonstração online
+    3. O script de pitch para envio no WhatsApp do proprietário
+    """
+    try:
+        data = request.get_json(force=True)
+        if not data:
+            return jsonify({"status": "error", "message": "Payload JSON vazio ou inválido"}), 400
+
+        # Gera Landing Page e Pitch personalizado
+        slug, html_content, pitch = generate_landing_page(data)
+
+        # Salva o arquivo de demo
+        os.makedirs("demos", exist_ok=True)
+        demo_path = os.path.join("demos", f"{slug}.html")
+        with open(demo_path, "w", encoding="utf-8") as f:
+            f.write(html_content)
+
+        # URLs da demonstração
+        local_demo_url = f"{request.host_url}demo/{slug}"
+        github_pages_demo_url = f"https://kpraiei.github.io/prospectchaveiro/demos/{slug}.html"
+        
+        # Substitui tag pelo link real da demo no pitch
+        final_pitch = pitch.replace("[LINK_DA_DEMO]", local_demo_url)
+
+        owner_phone = clean_phone(data.get("phone") or data.get("telefone") or "")
+
+        return jsonify({
+            "status": "success",
+            "message": "Landing Page e Pitch de Prospecção gerados com sucesso!",
+            "business_name": data.get("business_name") or data.get("nome"),
+            "slug": slug,
+            "demo_url": local_demo_url,
+            "github_pages_url": github_pages_demo_url,
+            "owner_phone": owner_phone,
+            "whatsapp_pitch": final_pitch,
+            "created_at": datetime.now().isoformat()
+        }), 201
+
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+@app.route("/demo/<slug>")
+def serve_demo(slug):
+    """Serve qualquer Landing Page gerada pelo Webhook da kriar.digital"""
+    safe_slug = "".join([c for c in slug if c.isalnum() or c in "-_"])
+    demo_file = os.path.join("demos", f"{safe_slug}.html")
+    if os.path.exists(demo_file):
+        with open(demo_file, "r", encoding="utf-8") as f:
+            return f.read()
+    return f"Demonstração '{safe_slug}' não encontrada.", 404
+
+@app.route("/dashboard/admin/prospects")
+@app.route("/prospects")
+def prospects_dashboard():
+    """Painel de Controle e Simulador de Webhook da kriar.digital"""
+    demos_list = []
+    if os.path.exists("demos"):
+        for f in os.listdir("demos"):
+            if f.endswith(".html"):
+                slug_name = f.replace(".html", "")
+                demos_list.append({
+                    "slug": slug_name,
+                    "url": f"/demo/{slug_name}",
+                    "file": f
+                })
+
+    dashboard_html = f"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kriar.digital | Painel de Prospecção & Webhook Maps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {{ font-family: 'Inter', sans-serif; background: #0B0F19; color: #F1F5F9; }}
+        h1, h2, h3 {{ font-family: 'Plus Jakarta Sans', sans-serif; }}
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <div class="max-w-6xl mx-auto space-y-8">
+        
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xl font-black shadow-lg">
+                    K
+                </div>
+                <div>
+                    <h1 class="text-2xl font-extrabold text-white">kriar.digital • Motor de Prospecção</h1>
+                    <p class="text-xs text-slate-400">Webhook Integrado com Scraper do Google Maps</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    Webhook Ativo: POST /api/webhook/prospect
+                </span>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+            
+            <!-- Simulador de Envio de Lead do Scraper (7 colunas) -->
+            <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-amber-400"></i> Disparar Lead do Scraper Google Maps
+                    </h2>
+                    <span class="text-xs text-slate-400">Simulador de Payload</span>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4 text-xs">
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-semibold">Nome da Empresa:</label>
+                        <input id="in-name" type="text" value="Desentupidora & Dedetizadora Tatuapé" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-white">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-semibold">Categoria / Nicho:</label>
+                        <select id="in-cat" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-white">
+                            <option value="desentupidora">Desentupidora / Hidráulica</option>
+                            <option value="chaveiro">Chaveiro 24 Horas</option>
+                            <option value="barbearia">Barbearia / Estética</option>
+                            <option value="eletricista">Eletricista / Energia</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-semibold">Telefone / WhatsApp:</label>
+                        <input id="in-phone" type="text" value="(11) 98877-6655" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-white">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-semibold">Bairro:</label>
+                        <input id="in-bairro" type="text" value="Tatuapé" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-white">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-semibold">Endereço:</label>
+                        <input id="in-addr" type="text" value="Rua Cantagalo, 840" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-white">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1 font-semibold">Cidade / UF:</label>
+                        <input id="in-city" type="text" value="São Paulo - SP" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-white">
+                    </div>
+                </div>
+
+                <button onclick="dispararWebhook()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm shadow-lg hover:brightness-110 active:scale-95 transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>DISPARAR WEBHOOK (GERAR LP & PITCH)</span>
+                </button>
+
+                <!-- Resultado Dinâmico -->
+                <div id="resultado-webhook" class="hidden space-y-3 p-4 rounded-xl bg-slate-950 border border-slate-800">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-emerald-400 font-bold flex items-center gap-1.5">
+                            <i class="fa-solid fa-circle-check"></i> Landing Page Gerada!
+                        </span>
+                        <a id="link-demo" href="#" target="_blank" class="text-indigo-400 hover:underline font-bold flex items-center gap-1">
+                            Abrir Demonstração <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-400 mb-1 font-bold">Script de Abordagem WhatsApp:</label>
+                        <textarea id="texto-pitch" rows="5" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-300 font-mono"></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Lista de Demos Criadas (5 colunas) -->
+            <div class="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+                <h2 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                    <i class="fa-solid fa-folder-open text-purple-400"></i> Demos no Ar
+                </h2>
+
+                <div class="space-y-2.5 text-xs">
+                    <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+                        <div>
+                            <strong class="text-white block font-bold">Chaveiro 24h Tatuapé</strong>
+                            <span class="text-slate-400 text-[11px]">Demo Oficial Chaveiro</span>
+                        </div>
+                        <a href="/" target="_blank" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold">Ver LP</a>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+                        <div>
+                            <strong class="text-white block font-bold">Papicarte Barbearia</strong>
+                            <span class="text-slate-400 text-[11px]">Campinas - SP • Botafogo</span>
+                        </div>
+                        <a href="/papicarte" target="_blank" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold">Ver LP</a>
+                    </div>
+
+                    {''.join([f'''
+                    <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+                        <div>
+                            <strong class="text-white block font-bold truncate max-w-[200px]">{d['slug']}</strong>
+                            <span class="text-slate-400 text-[11px]">Gerado por Webhook</span>
+                        </div>
+                        <a href="{d['url']}" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold">Abrir</a>
+                    </div>''' for d in demos_list])}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        async function dispararWebhook() {{
+            const payload = {{
+                business_name: document.getElementById('in-name').value,
+                category: document.getElementById('in-cat').value,
+                phone: document.getElementById('in-phone').value,
+                neighborhood: document.getElementById('in-bairro').value,
+                address: document.getElementById('in-addr').value,
+                city: document.getElementById('in-city').value,
+                rating: 4.9,
+                reviews_count: 135
+            }};
+
+            try {{
+                const res = await fetch('/api/webhook/prospect', {{
+                    method: 'POST',
+                    headers: {{ 'Content-Type': 'application/json' }},
+                    body: JSON.stringify(payload)
+                }});
+                const result = await res.json();
+                if (result.status === 'success') {{
+                    document.getElementById('resultado-webhook').classList.remove('hidden');
+                    document.getElementById('link-demo').href = result.demo_url;
+                    document.getElementById('texto-pitch').value = result.whatsapp_pitch;
+                }} else {{
+                    alert('Erro: ' + result.message);
+                }}
+            }} catch (err) {{
+                alert('Erro de conexão com o Webhook: ' + err.message);
+            }}
+        }}
+    </script>
+</body>
+</html>"""
+    return dashboard_html
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
