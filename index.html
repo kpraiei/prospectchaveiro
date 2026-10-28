@@ -73,7 +73,7 @@
 
         /* Glassmorphism Morphix Panel */
         .morphix-panel {
-            background: linear-gradient(135deg, rgba(19, 27, 46, 0.85) 0%, rgba(13, 19, 34, 0.92) 100%);
+            background: linear-gradient(135deg, rgba(19, 27, 46, 0.88) 0%, rgba(13, 19, 34, 0.95) 100%);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -206,178 +206,226 @@
         </div>
     </header>
 
-    <!-- 3. HERO CINEMÁTICO COM SIMULADOR DINÂMICO DE ATENDIMENTO -->
+    <!-- 3. HERO CINEMÁTICO: ULTRA-VISUAL COM IMAGENS REAIS E SIMULADOR INTEGRADO -->
     <main>
-    <section class="relative pt-12 pb-20 px-4 sm:px-8 overflow-hidden">
+    <section class="relative pt-8 pb-16 px-4 sm:px-8 overflow-hidden">
         <!-- Glows de Iluminação Volumétrica Noturna -->
         <div class="absolute top-1/4 -left-32 w-96 h-96 bg-amberGlow/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div class="absolute bottom-10 right-0 w-[500px] h-[500px] bg-surface-border/30 rounded-full blur-[150px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Linha 1 do Hero: Proposta de Valor e Apresentação -->
+            <div class="max-w-3xl mb-8 space-y-4">
+                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface-card/80 border border-surface-border text-xs text-slate-300 shadow-morphix-inset">
+                    <span class="flex text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </span>
+                    <span class="font-bold text-white">4.9/5.0 no Google Maps</span>
+                    <span class="text-slate-500">•</span>
+                    <span class="text-slate-400 font-medium">+10 anos no Tatuapé</span>
+                </div>
+
+                <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
+                    Ficou trancado para fora no Tatuapé? <br>
+                    <span class="bg-gradient-to-r from-amberGlow via-amber-300 to-amberGlow-dark bg-clip-text text-transparent">
+                        Chegamos em 20 minutos sem arrombar sua porta.
+                    </span>
+                </h1>
+
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
+                    Você na calçada às 2h da manhã não pode esperar ninguém inventar preço. Atendimento técnico de urgência no <strong class="text-white">Tatuapé, Jardim Anália Franco e região</strong>. Valor fechado passado por foto antes da moto sair da base.
+                </p>
+
+                <!-- Botões de Ação Rápida de Topo -->
+                <div class="flex flex-wrap items-center gap-3 pt-1">
+                    <a href="https://wa.me/5511974359641?text=Ol%C3%A1!%20Fiquei%20trancado%20para%20fora%20aqui%20no%20Tatuap%C3%A9%20e%20preciso%20de%20socorro%20urgente."
+                       target="_blank"
+                       class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-techGreen to-techGreen-dark text-white font-heading font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-glow-green hover:brightness-110 active:scale-95 transition">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>CHAMAR SOCORRO NO WHATSAPP</span>
+                    </a>
+
+                    <a href="tel:+5511974359641"
+                       class="px-5 py-3.5 rounded-xl bg-surface-card border border-surface-border hover:border-amberGlow/50 text-white font-heading font-bold text-sm flex items-center justify-center gap-2 transition shadow-morphix-inset">
+                        <i class="fa-solid fa-phone-volume text-amberGlow"></i>
+                        <span>LIGAR DIRETO (24H)</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Linha 2 do Hero: Grid Duplo (Showcase Visual Fotográfico + Calculadora Interativa) -->
+            <div class="grid lg:grid-cols-12 gap-8 items-stretch">
                 
-                <!-- Coluna de Texto & Proposta Humana (7 colunas) -->
-                <div class="lg:col-span-7 space-y-6">
+                <!-- COLUNA VISUAL COM IMAGENS CINEMATOGRÁFICAS REAIS (6 colunas) -->
+                <div class="lg:col-span-6 flex flex-col justify-between gap-4">
                     
-                    <!-- Selo de Confiança Local -->
-                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface-card/80 border border-surface-border text-xs text-slate-300 shadow-morphix-inset">
-                        <span class="flex text-amber-400 text-xs">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </span>
-                        <span class="font-bold text-white">4.9/5.0 no Google Maps</span>
-                        <span class="text-slate-500">•</span>
-                        <span class="text-slate-400 font-medium">+10 anos no Tatuapé</span>
-                    </div>
+                    <!-- Imagem Principal 1: Técnico em Ação com Lanterna Noturna -->
+                    <div class="relative rounded-2xl overflow-hidden border border-surface-border shadow-2xl group flex-1 min-h-[320px]">
+                        <img src="assets/img/hero_chaveiro.jpg" 
+                             alt="Técnico Chaveiro realizando abertura técnica noturna no Tatuapé com iluminação focada" 
+                             class="w-full h-full object-cover object-center brightness-95 group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent"></div>
 
-                    <!-- Título Cinematográfico Não-Genérico -->
-                    <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
-                        Trancado para fora no Tatuapé? <br>
-                        <span class="bg-gradient-to-r from-amberGlow via-amber-300 to-amberGlow-dark bg-clip-text text-transparent">
-                            Chegamos em 20 minutos sem arrombar sua porta.
-                        </span>
-                    </h1>
-
-                    <!-- Parágrafo Autêntico sem clichês de IA -->
-                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-                        Você na calçada às 2h da manhã não pode esperar ninguém inventar preço. Atendimento de urgência no <strong class="text-white">Tatuapé, Jardim Anália Franco e Vila Gomes Cardim</strong>. Enviamos o valor fechado por foto antes do técnico sair de moto da base.
-                    </p>
-
-                    <!-- Selos Táteis de Garantia Técnica -->
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-                        <div class="bg-surface-card/60 border border-surface-border/70 p-3 rounded-xl flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-lg bg-amberGlow/10 text-amberGlow flex items-center justify-center text-sm shrink-0">
-                                <i class="fa-solid fa-shield-check"></i>
-                            </div>
-                            <div class="text-xs">
-                                <strong class="text-white block font-heading">Zero Avarias</strong>
-                                <span class="text-slate-400">Michas especiais</span>
-                            </div>
+                        <!-- Badge Flutuante no Topo da Foto -->
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
+                            <span class="inline-flex items-center gap-2 bg-void/90 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-xl text-xs font-bold text-white shadow-lg">
+                                <span class="w-2 h-2 rounded-full bg-techGreen animate-pulse"></span>
+                                Viatura 02 em Plantão Noturno
+                            </span>
+                            <span class="bg-amberGlow text-void font-heading font-black text-[11px] px-2.5 py-1 rounded-lg uppercase tracking-wider shadow">
+                                24 Horas
+                            </span>
                         </div>
 
-                        <div class="bg-surface-card/60 border border-surface-border/70 p-3 rounded-xl flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-lg bg-amberGlow/10 text-amberGlow flex items-center justify-center text-sm shrink-0">
-                                <i class="fa-solid fa-camera"></i>
-                            </div>
-                            <div class="text-xs">
-                                <strong class="text-white block font-heading">Preço Fechado</strong>
-                                <span class="text-slate-400">Por foto no WhatsApp</span>
-                            </div>
-                        </div>
-
-                        <div class="bg-surface-card/60 border border-surface-border/70 p-3 rounded-xl flex items-center gap-3 col-span-2 sm:col-span-1">
-                            <div class="w-9 h-9 rounded-lg bg-techGreen/10 text-techGreen flex items-center justify-center text-sm shrink-0">
-                                <i class="fa-solid fa-credit-card"></i>
-                            </div>
-                            <div class="text-xs">
-                                <strong class="text-white block font-heading">Cartão & Pix</strong>
-                                <span class="text-slate-400">Na maquininha móvel</span>
+                        <!-- Card Flutuante Inferior com Detalhes da Foto -->
+                        <div class="absolute bottom-4 left-4 right-4 bg-surface-base/95 backdrop-blur-md p-4 rounded-xl border border-surface-border shadow-xl">
+                            <div class="flex items-center justify-between gap-3">
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-wider text-amberGlow flex items-center gap-1.5">
+                                        <i class="fa-solid fa-shield-halved"></i> Ferramental de Precisão Alemã
+                                    </p>
+                                    <p class="text-sm font-semibold text-white mt-0.5">Abertura técnica sem danificar miolo nem fechadura</p>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Atendimentos residenciais em prédios e casas da Zona Leste</p>
+                                </div>
+                                <div class="w-10 h-10 rounded-xl bg-amberGlow/10 text-amberGlow flex items-center justify-center shrink-0 border border-amberGlow/20">
+                                    <i class="fa-solid fa-key text-lg"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Botões de Ação Rápida -->
-                    <div class="flex flex-col sm:flex-row gap-3.5 pt-2">
-                        <a href="https://wa.me/5511974359641?text=Ol%C3%A1!%20Fiquei%20trancado%20para%20fora%20aqui%20no%20Tatuap%C3%A9%20e%20preciso%20de%20socorro%20urgente."
-                           target="_blank"
-                           class="px-8 py-4 rounded-xl bg-gradient-to-r from-techGreen to-techGreen-dark text-white font-heading font-extrabold text-base sm:text-lg flex items-center justify-center gap-3 shadow-glow-green hover:brightness-110 active:scale-95 transition">
-                            <i class="fa-brands fa-whatsapp text-2xl"></i>
-                            <span>CHAMAR SOCORRO NO WHATSAPP</span>
-                        </a>
-
-                        <a href="tel:+5511974359641"
-                           class="px-6 py-4 rounded-xl bg-surface-card border border-surface-border hover:border-amberGlow/50 text-white font-heading font-bold text-base flex items-center justify-center gap-3 transition shadow-morphix-inset">
-                            <i class="fa-solid fa-phone-volume text-amberGlow"></i>
-                            <span>LIGAR DIRETO (24H)</span>
-                        </a>
+                    <!-- Imagem Secundária 2: Banner Automotivo Lishi (Picture-in-Picture Bar) -->
+                    <div class="morphix-panel p-4 rounded-2xl flex items-center gap-4">
+                        <div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-surface-border relative">
+                            <img src="assets/img/auto_chaveiro.jpg" 
+                                 alt="Decodificador Lishi em fechadura automotiva" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-amberGlow/10"></div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-amberGlow uppercase tracking-wider">Socorro Automotivo Lishi</span>
+                                <span class="text-[10px] bg-techGreen/20 text-techGreen px-2 py-0.5 rounded font-semibold">Sem Riscos</span>
+                            </div>
+                            <h4 class="font-heading font-bold text-sm text-white mt-0.5 truncate">Chave trancada dentro do carro?</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Abrimos pelo cilindro sem entortar a coluna e sem estragar a borracha da porta.</p>
+                        </div>
                     </div>
 
                 </div>
 
-                <!-- Coluna do Simulador Interativo Morphix (5 colunas) -->
-                <div class="lg:col-span-5" id="simulador">
-                    <div class="morphix-panel p-6 sm:p-7 rounded-2xl relative">
+                <!-- COLUNA DO SIMULADOR MORPHIX COM OPÇÃO DE OUTRO ENDEREÇO (6 colunas) -->
+                <div class="lg:col-span-6" id="simulador">
+                    <div class="morphix-panel p-6 sm:p-7 rounded-2xl relative h-full flex flex-col justify-between">
                         
                         <!-- Header do Simulador -->
-                        <div class="flex items-center justify-between pb-5 border-b border-surface-border">
-                            <div>
-                                <span class="text-amberGlow font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5">
-                                    <span class="w-2 h-2 rounded-full bg-techGreen animate-ping"></span>
-                                    Calculadora de Deslocamento
-                                </span>
-                                <h3 class="font-heading font-extrabold text-lg sm:text-xl text-white mt-1">
-                                    Simulador de Socorro Imediato
-                                </h3>
+                        <div>
+                            <div class="flex items-center justify-between pb-4 border-b border-surface-border">
+                                <div>
+                                    <span class="text-amberGlow font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-techGreen animate-ping"></span>
+                                        Calculadora de Deslocamento
+                                    </span>
+                                    <h3 class="font-heading font-extrabold text-xl text-white mt-1">
+                                        Simular Socorro e Tempo de Chegada
+                                    </h3>
+                                </div>
+                                <div class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-amberGlow">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </div>
                             </div>
-                            <div class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-amberGlow">
-                                <i class="fa-solid fa-sliders"></i>
+
+                            <!-- Formulário Interativo -->
+                            <div class="mt-4 space-y-4">
+                                
+                                <!-- Passo 1: O que aconteceu? -->
+                                <div>
+                                    <label for="select-problema" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                                        1. Qual é a sua urgência?
+                                    </label>
+                                    <select id="select-problema" onchange="atualizarSimulador()" 
+                                            class="w-full bg-surface-base border border-surface-border rounded-xl px-4 py-3 text-sm text-white font-medium focus:outline-none focus:border-amberGlow transition cursor-pointer">
+                                        <option value="Trancado fora de casa (porta fechada)">🚪 Trancado(a) para fora de casa/apto</option>
+                                        <option value="Chave trancada dentro do carro">🚗 Chave trancada dentro do veículo</option>
+                                        <option value="Chave quebrada dentro da fechadura">🗝️ Chave quebrou dentro do miolo</option>
+                                        <option value="Troca de segredo / cilindro urgente">🔒 Perdi a chave / Trocar segredo agora</option>
+                                        <option value="Instalação ou conserto de fechadura digital">📱 Fechadura digital (instalação/reparo)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Passo 2: Onde você está? (Com opção de outro endereço) -->
+                                <div>
+                                    <label for="select-bairro" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                                        2. Onde você está localizado(a)?
+                                    </label>
+                                    <select id="select-bairro" onchange="atualizarSimulador()" 
+                                            class="w-full bg-surface-base border border-surface-border rounded-xl px-4 py-3 text-sm text-white font-medium focus:outline-none focus:border-amberGlow transition cursor-pointer">
+                                        <option value="Tatuapé (Centro / Miolo)" data-tempo="12 a 18 min" data-dist="0.8 km">📍 Tatuapé (R. Tuiuti, Itapura, Serra de Bragança)</option>
+                                        <option value="Jardim Anália Franco" data-tempo="15 a 20 min" data-dist="1.9 km">📍 Jardim Anália Franco (Próx. Shopping / Ceret)</option>
+                                        <option value="Vila Gomes Cardim" data-tempo="12 a 18 min" data-dist="1.2 km">📍 Vila Gomes Cardim (Azevedo Soares / Emília Marengo)</option>
+                                        <option value="Vila Carrão" data-tempo="18 a 22 min" data-dist="2.8 km">📍 Vila Carrão / Conselheiro Carrão</option>
+                                        <option value="Mooca ou Belém" data-tempo="18 a 25 min" data-dist="3.4 km">📍 Mooca / Belém / Salim Farah Maluf</option>
+                                        <option value="OUTRO_ENDERECO" data-tempo="A confirmar" data-dist="Sob consulta">📍 Outro bairro / endereço personalizado...</option>
+                                    </select>
+                                </div>
+
+                                <!-- CAMPO DINÂMICO PARA OUTRO ENDEREÇO (Aparece ao selecionar a opção) -->
+                                <div id="container-outro-endereco" class="hidden space-y-2 p-3.5 rounded-xl bg-surface-card border border-amberGlow/30 animate-fadeIn">
+                                    <label for="input-outro-endereco" class="block text-xs font-semibold text-amberGlow uppercase tracking-wider">
+                                        <i class="fa-solid fa-map-location-dot mr-1"></i> Digite seu bairro ou endereço:
+                                    </label>
+                                    <input type="text" 
+                                           id="input-outro-endereco" 
+                                           oninput="atualizarSimulador()"
+                                           placeholder="Ex: Av. Celso Garcia, Brás, Penha, Vila Matilde..." 
+                                           class="w-full bg-surface-base border border-surface-border rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amberGlow transition">
+                                    
+                                    <!-- AVISO DE CONTATO IMEDIATO DO PROFISSIONAL -->
+                                    <div class="p-2.5 rounded-lg bg-amberGlow/10 border border-amberGlow/20 text-amber-200 text-xs flex items-start gap-2.5 leading-relaxed">
+                                        <i class="fa-solid fa-headset text-amberGlow text-sm mt-0.5 shrink-0"></i>
+                                        <span>
+                                            <strong>Aviso de Atendimento:</strong> Nossa central entrará em contato imediatamente pelo WhatsApp para confirmar a viatura mais próxima da sua rota e informar o valor fechado antes do deslocamento.
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Passo 3: Tipo da Porta/Carro -->
+                                <div>
+                                    <label for="select-tipo" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                                        3. Tipo de Fechadura / Veículo:
+                                    </label>
+                                    <select id="select-tipo" onchange="atualizarSimulador()" 
+                                            class="w-full bg-surface-base border border-surface-border rounded-xl px-4 py-3 text-sm text-white font-medium focus:outline-none focus:border-amberGlow transition cursor-pointer">
+                                        <option value="Porta Comum (Chave Yale simples)">Porta comum de madeira / Chave simples</option>
+                                        <option value="Fechadura Tetra ou Multiponto">Fechadura Tetra / Chave Multiponto</option>
+                                        <option value="Porta Blindada ou Pivotante">Porta Blindada / Fechadura de alta segurança</option>
+                                        <option value="Carro Nacional">Veículo Nacional (Abertura pelo cilindro)</option>
+                                        <option value="Carro Importado / Blindado">Veículo Importado / Sistema pantográfico</option>
+                                    </select>
+                                </div>
+
+                                <!-- Painel Dinâmico de Estimativa Morphix -->
+                                <div class="bg-surface-base/90 border border-surface-border rounded-xl p-3.5">
+                                    <div class="flex items-center justify-between text-xs pb-2 border-b border-surface-border/50">
+                                        <span class="text-slate-400">Tempo estimado da viatura:</span>
+                                        <span id="display-tempo" class="font-heading font-extrabold text-amberGlow text-sm">12 a 18 min</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-xs pt-2">
+                                        <span class="text-slate-400">Distância da base fixa:</span>
+                                        <span id="display-dist" class="font-semibold text-slate-200 text-xs">~0.8 km (R. Domingos Agostim)</span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
-                        <!-- Formulário Interativo via JavaScript Puro -->
-                        <div class="mt-5 space-y-4">
-                            
-                            <!-- Passo 1: O que aconteceu? -->
-                            <div>
-                                <label for="select-problema" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                                    1. Qual é a sua urgência?
-                                </label>
-                                <select id="select-problema" onchange="atualizarSimulador()" 
-                                        class="w-full bg-surface-base border border-surface-border rounded-xl px-4 py-3 text-sm text-white font-medium focus:outline-none focus:border-amberGlow transition cursor-pointer">
-                                    <option value="Trancado fora de casa (porta fechada)">🚪 Trancado(a) para fora de casa/apto</option>
-                                    <option value="Chave trancada dentro do carro">🚗 Chave trancada dentro do veículo</option>
-                                    <option value="Chave quebrada dentro da fechadura">🗝️ Chave quebrou dentro do miolo</option>
-                                    <option value="Troca de segredo / cilindro urgente">🔒 Perdi a chave / Trocar segredo agora</option>
-                                    <option value="Instalação ou conserto de fechadura digital">📱 Fechadura digital (instalação/reparo)</option>
-                                </select>
-                            </div>
-
-                            <!-- Passo 2: Onde você está? -->
-                            <div>
-                                <label for="select-bairro" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                                    2. Onde você está localizado(a)?
-                                </label>
-                                <select id="select-bairro" onchange="atualizarSimulador()" 
-                                        class="w-full bg-surface-base border border-surface-border rounded-xl px-4 py-3 text-sm text-white font-medium focus:outline-none focus:border-amberGlow transition cursor-pointer">
-                                    <option value="Tatuapé (Centro / Miolo)" data-tempo="12 a 18 min" data-dist="0.8 km">📍 Tatuapé (R. Tuiuti, Itapura, Serra de Bragança)</option>
-                                    <option value="Jardim Anália Franco" data-tempo="15 a 20 min" data-dist="1.9 km">📍 Jardim Anália Franco (Próx. Shopping / Ceret)</option>
-                                    <option value="Vila Gomes Cardim" data-tempo="12 a 18 min" data-dist="1.2 km">📍 Vila Gomes Cardim (Azevedo Soares / Emília Marengo)</option>
-                                    <option value="Vila Carrão" data-tempo="18 a 22 min" data-dist="2.8 km">📍 Vila Carrão / Conselheiro Carrão</option>
-                                    <option value="Mooca ou Belém" data-tempo="18 a 25 min" data-dist="3.4 km">📍 Mooca / Belém / Salim Farah Maluf</option>
-                                </select>
-                            </div>
-
-                            <!-- Passo 3: Tipo da Porta/Carro -->
-                            <div>
-                                <label for="select-tipo" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                                    3. Tipo de Fechadura / Veículo:
-                                </label>
-                                <select id="select-tipo" onchange="atualizarSimulador()" 
-                                        class="w-full bg-surface-base border border-surface-border rounded-xl px-4 py-3 text-sm text-white font-medium focus:outline-none focus:border-amberGlow transition cursor-pointer">
-                                    <option value="Porta Comum (Chave Yale simples)">Porta comum de madeira / Chave simples</option>
-                                    <option value="Fechadura Tetra ou Multiponto">Fechadura Tetra / Chave Multiponto</option>
-                                    <option value="Porta Blindada ou Pivotante">Porta Blindada / Fechadura de alta segurança</option>
-                                    <option value="Carro Nacional">Veículo Nacional (Abertura pelo cilindro)</option>
-                                    <option value="Carro Importado / Blindado">Veículo Importado / Sistema pantográfico</option>
-                                </select>
-                            </div>
-
-                            <!-- Painel Dinâmico de Estimativa Morphix -->
-                            <div class="bg-surface-base/90 border border-surface-border rounded-xl p-4 mt-2">
-                                <div class="flex items-center justify-between text-xs pb-2 border-b border-surface-border/50">
-                                    <span class="text-slate-400">Tempo estimado de moto:</span>
-                                    <span id="display-tempo" class="font-heading font-extrabold text-amberGlow text-sm">12 a 18 min</span>
-                                </div>
-                                <div class="flex items-center justify-between text-xs pt-2">
-                                    <span class="text-slate-400">Distância da base (R. Domingos Agostim):</span>
-                                    <span id="display-dist" class="font-semibold text-slate-200 text-xs">~0.8 km</span>
-                                </div>
-                            </div>
-
-                            <!-- Botão Dinâmico de WhatsApp com Link Pré-formatado -->
+                        <!-- Botão Dinâmico de WhatsApp com Link Pré-formatado -->
+                        <div class="mt-5 space-y-2">
                             <a id="btn-whatsapp-simulador" 
                                href="https://wa.me/5511974359641?text=Ol%C3%A1,%20estou%20no%20Tatuap%C3%A9%20e%20preciso%20de%20chaveiro%20urgente." 
                                target="_blank"
@@ -389,7 +437,6 @@
                             <p class="text-[11px] text-center text-slate-400">
                                 <i class="fa-solid fa-lock text-amberGlow mr-1"></i> Preço fechado antes de sair • Sem cobranças surpresa
                             </p>
-
                         </div>
 
                     </div>
@@ -444,9 +491,9 @@
             <div class="morphix-card rounded-2xl overflow-hidden flex flex-col justify-between">
                 <div>
                     <div class="h-56 relative overflow-hidden bg-void">
-                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80" 
+                        <img src="assets/img/hero_chaveiro.jpg" 
                              alt="Fechadura residencial com chave de alta segurança" 
-                             class="w-full h-full object-cover opacity-80 hover:scale-105 transition duration-700">
+                             class="w-full h-full object-cover opacity-85 hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent"></div>
                         <span class="absolute top-4 left-4 bg-void/90 border border-white/10 text-amberGlow text-xs font-bold px-3 py-1.5 rounded-lg backdrop-blur-md">
                             <i class="fa-solid fa-house-chimney mr-1"></i> Residencial
@@ -485,13 +532,13 @@
                 </div>
             </div>
 
-            <!-- Card 2: Automotivo de Precisão -->
+            <!-- Card 2: Automotivo de Precisão (Com Foto Real Lishi) -->
             <div class="morphix-card rounded-2xl overflow-hidden flex flex-col justify-between">
                 <div>
                     <div class="h-56 relative overflow-hidden bg-void">
-                        <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80" 
-                             alt="Chave automotiva canivete e codificação" 
-                             class="w-full h-full object-cover opacity-80 hover:scale-105 transition duration-700">
+                        <img src="assets/img/auto_chaveiro.jpg" 
+                             alt="Chave automotiva canivete e codificação Lishi" 
+                             class="w-full h-full object-cover opacity-85 hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent"></div>
                         <span class="absolute top-4 left-4 bg-void/90 border border-white/10 text-amberGlow text-xs font-bold px-3 py-1.5 rounded-lg backdrop-blur-md">
                             <i class="fa-solid fa-car mr-1"></i> Automotivo 24h
@@ -966,36 +1013,67 @@
 
     <!-- JAVASCRIPT DINÂMICO PARA INTERAÇÕES FRONTEND -->
     <script>
-        // Simulador de Socorro Imediato
+        // Simulador de Socorro Imediato com Suporte a Outro Endereço
         function atualizarSimulador() {
             const selectProblema = document.getElementById('select-problema');
             const selectBairro = document.getElementById('select-bairro');
             const selectTipo = document.getElementById('select-tipo');
+            const containerOutro = document.getElementById('container-outro-endereco');
+            const inputOutro = document.getElementById('input-outro-endereco');
             
             const selectedBairroOpt = selectBairro.options[selectBairro.selectedIndex];
-            const tempo = selectedBairroOpt.getAttribute('data-tempo') || '15 a 20 min';
-            const dist = selectedBairroOpt.getAttribute('data-dist') || '1.0 km';
+            const isOutroEndereco = (selectBairro.value === 'OUTRO_ENDERECO');
+
+            let tempo = selectedBairroOpt.getAttribute('data-tempo') || '15 a 20 min';
+            let dist = selectedBairroOpt.getAttribute('data-dist') || '1.0 km';
+            let bairroDescricao = selectBairro.value;
+
+            // Se for outro endereço, mostra campo de digitação e alerta
+            if (isOutroEndereco) {
+                containerOutro.classList.remove('hidden');
+                const enderecoDigitado = inputOutro.value.trim();
+                bairroDescricao = enderecoDigitado ? `Endereço: ${enderecoDigitado}` : 'Endereço a confirmar';
+                tempo = 'A confirmar pela central (Viatura mais próxima)';
+                dist = 'Sob consulta imediata';
+            } else {
+                containerOutro.classList.add('hidden');
+            }
 
             // Atualiza tempo e distância na tela
             document.getElementById('display-tempo').textContent = tempo;
-            document.getElementById('display-dist').textContent = '~' + dist;
+            document.getElementById('display-dist').textContent = dist.startsWith('~') ? dist : (dist === 'Sob consulta imediata' ? dist : '~' + dist + ' (R. Domingos Agostim)');
 
             // Formata mensagem personalizada para o WhatsApp
             const problema = selectProblema.value;
-            const bairro = selectBairro.value;
             const tipo = selectTipo.value;
 
-            const mensagem = `Olá! Preciso de socorro urgente de chaveiro.
+            let mensagem = '';
+            if (isOutroEndereco) {
+                const endFinal = inputOutro.value.trim() || 'A informar no chat';
+                mensagem = `Olá! Preciso de socorro de chaveiro em um endereço fora do miolo central:
 
 ` +
-                             `🚨 *Problema:* ${problema}
+                           `🚨 *Problema:* ${problema}
 ` +
-                             `📍 *Localização:* ${bairro}
+                           `📍 *Endereço / Bairro:* ${endFinal}
 ` +
-                             `🔑 *Tipo:* ${tipo}
+                           `🔑 *Tipo:* ${tipo}
 
 ` +
-                             `Por favor, me informe o valor fechado e a previsão de chegada.`;
+                           `Poderiam me informar a viatura mais próxima, previsão de chegada e o valor fechado?`;
+            } else {
+                mensagem = `Olá! Preciso de socorro urgente de chaveiro no Tatuapé:
+
+` +
+                           `🚨 *Problema:* ${problema}
+` +
+                           `📍 *Localização:* ${bairroDescricao}
+` +
+                           `🔑 *Tipo:* ${tipo}
+
+` +
+                           `Por favor, me informe o valor fechado e a previsão de chegada da moto.`;
+            }
 
             const linkWhatsApp = `https://wa.me/5511974359641?text=${encodeURIComponent(mensagem)}`;
             document.getElementById('btn-whatsapp-simulador').href = linkWhatsApp;
