@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papicarte Barbearia | Cortes na Régua, Visagismo e Barboterapia em Campinas</title>
+    <meta name="description" content="Barbearia premium no Botafogo em Campinas - Rua Dr. Delfino Cintra, 377. Fade impecável, toalha quente, navalha e planos mensais. Agende seu horário sem fila!">
+    <meta name="theme-color" content="#0A0A0C">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Pro icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        void: '#0A0A0C',
+                        surface: {
+                            base: '#111116',
+                            card: '#16161D',
+                            border: '#23232E',
+                            light: '#2D2D3B'
+                        },
+                        gold: {
+                            DEFAULT: '#C9A86A',
+                            light: '#E5C992',
+                            dark: '#A68244',
+                            glow: '#F5D79E'
+                        },
+                        techGreen: {
+                            DEFAULT: '#10B981',
+                            dark: '#059669',
+                            glow: '#34D399'
+                        }
+                    },
+                    boxShadow: {
+                        'glow-gold': '0 0 35px -8px rgba(201, 168, 106, 0.35)',
+                        'glow-green': '0 0 35px -8px rgba(16, 185, 129, 0.45)',
+                        'morphix': '0 20px 40px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 0 rgba(255, 255, 255, 0.08)',
+                        'morphix-inset': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.7), 0 1px 0 0 rgba(255, 255, 255, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Ambient Cinematic Luxury Barbershop */
+        .cinematic-barber-bg {
+            background-color: #0A0A0C;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(201, 168, 106, 0.09) 0%, transparent 45%),
+                radial-gradient(circle at 85% 35%, rgba(35, 35, 46, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 45%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        /* Glassmorphism Morphix Panel */
+        .morphix-panel {
+            background: linear-gradient(135deg, rgba(22, 22, 29, 0.90) 0%, rgba(17, 17, 22, 0.96) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .morphix-panel:hover {
+            border-color: rgba(201, 168, 106, 0.3);
+        }
+
+        /* Interactive Card Spotlight */
+        .morphix-card {
+            background: linear-gradient(145deg, #16161D 0%, #111116 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .morphix-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(201, 168, 106, 0.35);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.85), 0 0 25px -8px rgba(201, 168, 106, 0.2);
+        }
+    </style>
+</head>
+<body class="cinematic-barber-bg text-slate-200 antialiased selection:bg-gold selection:text-void font-sans">
+
+    <!-- 1. TOP BAR STATUS AO VIVO -->
+    <aside aria-label="Status de Agendamento" class="bg-void/90 border-b border-surface-border/70 py-2.5 px-4 text-xs sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            
+            <div class="flex items-center gap-2.5">
+                <span class="relative flex h-3 w-3 items-center justify-center">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-techGreen opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-techGreen"></span>
+                </span>
+                <span class="font-bold text-white tracking-wide uppercase text-[11px] sm:text-xs">
+                    Cadeiras Disponíveis Hoje em Campinas: <span class="text-gold font-semibold normal-case">Bairro Botafogo</span>
+                </span>
+                <span class="hidden md:inline-flex items-center gap-1.5 text-slate-400 border-l border-slate-700 pl-3">
+                    <i class="fa-solid fa-beer-mug-empty text-gold"></i> Cerveja gelada ou café espresso cortesia
+                </span>
+            </div>
+
+            <div class="flex items-center gap-4 text-slate-400 text-[11px] sm:text-xs">
+                <span class="hidden sm:inline">
+                    <i class="fa-solid fa-location-dot text-gold mr-1"></i> R. Dr. Delfino Cintra, 377 (Próx. Av. Andrade Neves)
+                </span>
+                <span class="inline-flex items-center gap-1 text-gold font-semibold">
+                    <i class="fa-solid fa-star text-xs"></i> 4.9 no Google Maps
+                </span>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- 2. NAVBAR COM GLASSMORPHISM & IDENTIDADE VISUAL -->
+    <header class="border-b border-white/5 py-4 px-4 sm:px-8 bg-surface-base/80 backdrop-blur-xl relative z-40">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gold to-gold-dark p-[1px] shadow-glow-gold transition transform group-hover:scale-105">
+                    <div class="w-full h-full bg-void rounded-[11px] flex items-center justify-center text-gold">
+                        <i class="fa-solid fa-scissors text-xl"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-heading font-extrabold text-lg sm:text-xl text-white tracking-tight leading-none">PAPICARTE</span>
+                        <span class="bg-gold/10 border border-gold/30 text-gold text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider hidden sm:inline">Arte com Estilo</span>
+                    </div>
+                    <span class="text-xs text-slate-400 font-medium block mt-1">Visagismo Masculino & Cortes Premium</span>
+                </div>
+            </a>
+
+            <!-- Navegação Desktop -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#simulador" class="hover:text-gold transition flex items-center gap-1.5"><i class="fa-solid fa-calendar-check text-xs text-gold"></i> Agendamento</a>
+                <a href="#servicos" class="hover:text-gold transition">Serviços & Planos</a>
+                <a href="#diferenciais" class="hover:text-gold transition">Experiência</a>
+                <a href="#avaliacoes" class="hover:text-gold transition">Avaliações (4.9★)</a>
+                <a href="#localizacao" class="hover:text-gold transition">Como Chegar</a>
+            </nav>
+
+            <!-- Ações Diretas -->
+            <div class="flex items-center gap-3">
+                <a href="tel:+5519994499949" 
+                   class="hidden sm:inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-surface-card border border-surface-border text-slate-200 hover:text-white hover:border-gold/50 transition text-sm font-semibold shadow-morphix-inset">
+                    <i class="fa-solid fa-phone text-gold"></i>
+                    <span>(19) 99449-9949</span>
+                </a>
+
+                <a href="https://wa.me/5519994499949?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20na%20Papicarte%20Barbearia."
+                   target="_blank"
+                   class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-techGreen to-techGreen-dark text-white font-heading font-bold text-sm shadow-glow-green hover:brightness-110 active:scale-95 transition">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Agendar no WhatsApp</span>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION ULTRA-VISUAL COM IMAGENS CINEMATOGRÁFICAS & SIMULADOR -->
+    <main>
+    <section class="relative pt-8 pb-16 px-4 sm:px-8 overflow-hidden">
+        <!-- Glows de Iluminação Vintage Nobre -->
+        <div class="absolute top-1/4 -left-32 w-96 h-96 bg-gold/10 rounded-full blur-[130px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-0 w-[500px] h-[500px] bg-surface-border/40 rounded-full blur-[160px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            
+            <!-- Proposta de Valor -->
+            <div class="max-w-3xl mb-8 space-y-4">
+                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface-card/80 border border-surface-border text-xs text-slate-300 shadow-morphix-inset">
+                    <span class="flex text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </span>
+                    <span class="font-bold text-white">4.9 de 5 no Google Maps</span>
+                    <span class="text-slate-500">•</span>
+                    <span class="text-slate-400 font-medium">Referência no Botafogo e Cambuí</span>
+                </div>
+
+                <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
+                    Corte na régua e visagismo masculino <br>
+                    <span class="bg-gradient-to-r from-gold via-gold-light to-gold-dark bg-clip-text text-transparent">
+                        no coração de Campinas. Sem filas.
+                    </span>
+                </h1>
+
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
+                    Chega de cortar o cabelo na correria sem saber se vai combinar com o seu rosto. Na <strong>Papicarte Barbearia</strong> você tem consultoria de visagismo, navalha afiada com toalha quente, cerveja gelada e hora marcada na <strong class="text-white">Rua Dr. Delfino Cintra</strong>.
+                </p>
+
+                <!-- Botões de Ação Rápida -->
+                <div class="flex flex-wrap items-center gap-3 pt-1">
+                    <a href="https://wa.me/5519994499949?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20hoje%20na%20Papicarte."
+                       target="_blank"
+                       class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-techGreen to-techGreen-dark text-white font-heading font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-glow-green hover:brightness-110 active:scale-95 transition">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>AGENDAR MEU HORÁRIO AGORA</span>
+                    </a>
+
+                    <a href="#servicos"
+                       class="px-5 py-3.5 rounded-xl bg-surface-card border border-surface-border hover:border-gold/50 text-white font-heading font-bold text-sm flex items-center justify-center gap-2 transition shadow-morphix-inset">
+                        <i class="fa-solid fa-eye text-gold"></i>
+                        <span>CONHECER OS PLANOS MENSAIS</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grid Duplo: Imagens Cinematográficas + Simulador de Agendamento -->
+            <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- COLUNA VISUAL COM AS FOTOS CINEMATOGRÁFICAS (6 colunas) -->
+                <div class="lg:col-span-6 flex flex-col justify-between gap-4">
+                    
+                    <!-- Imagem Principal 1: Barbeiro Esculpindo Fade com Luz Âmbar -->
+                    <div class="relative rounded-2xl overflow-hidden border border-surface-border shadow-2xl group flex-1 min-h-[340px]">
+                        <img src="assets/img/barbearia_hero.jpg" 
+                             alt="Barbeiro executando corte fade clássico na Papicarte Barbearia em Campinas" 
+                             class="w-full h-full object-cover object-center brightness-95 group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-void via-void/25 to-transparent"></div>
+
+                        <!-- Badge Flutuante no Topo da Foto -->
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
+                            <span class="inline-flex items-center gap-2 bg-void/90 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-xl text-xs font-bold text-white shadow-lg">
+                                <span class="w-2 h-2 rounded-full bg-techGreen animate-pulse"></span>
+                                Cadeira Livre com Agendamento
+                            </span>
+                            <span class="bg-gold text-void font-heading font-black text-[11px] px-2.5 py-1 rounded-lg uppercase tracking-wider shadow">
+                                Arte com Estilo
+                            </span>
+                        </div>
+
+                        <!-- Card Flutuante Inferior -->
+                        <div class="absolute bottom-4 left-4 right-4 bg-surface-base/95 backdrop-blur-md p-4 rounded-xl border border-surface-border shadow-xl">
+                            <div class="flex items-center justify-between gap-3">
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-wider text-gold flex items-center gap-1.5">
+                                        <i class="fa-solid fa-gem"></i> Visagismo & Acabamento Navalhado
+                                    </p>
+                                    <p class="text-sm font-semibold text-white mt-0.5">Harmonização do corte com o formato do seu rosto</p>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Técnicas internacionais e produtos de primeira linha</p>
+                                </div>
+                                <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center shrink-0 border border-gold/20">
+                                    <i class="fa-solid fa-crown text-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Imagem Secundária 2: Barboterapia com Toalha Quente & Navalha -->
+                    <div class="morphix-panel p-4 rounded-2xl flex items-center gap-4">
+                        <div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-surface-border relative">
+                            <img src="assets/img/barba_macro.jpg" 
+                                 alt="Barboterapia com toalha quente e navalhete clássico" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gold/10"></div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-gold uppercase tracking-wider">Barboterapia Tradicional</span>
+                                <span class="text-[10px] bg-techGreen/20 text-techGreen px-2 py-0.5 rounded font-semibold">Relaxamento</span>
+                            </div>
+                            <h4 class="font-heading font-bold text-sm text-white mt-0.5 truncate">Toalha quente com óleos essenciais</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Navalha descartável, massagem facial e hidratação para evitar irritação na pele.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- COLUNA DO SIMULADOR DE AGENDAMENTO COM SUPORTE A OUTRO ENDEREÇO (6 colunas) -->
+                <div class="lg:col-span-6" id="simulador">
+                    <div class="morphix-panel p-6 sm:p-7 rounded-2xl relative h-full flex flex-col justify-between">
+                        
+                        <div>
+                            <div class="flex items-center justify-between pb-4 border-b border-surface-border">
+                                <div>
+                                    <span class="text-gold font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-techGreen animate-ping"></span>
+                                        Agendamento Inteligente
+                                    </span>
+                                    <h3 class="font-heading font-extrabold text-xl text-white mt-1">
+                                        Simular Atendimento & Vagas
+                                    </h3>
+                                </div>
+                                <div class="w-10 h-10 rounded-xl bg-surface-card border border-surface-border flex items-center justify-center text-gold">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 space-y-4">
+                                
+                                <!-- Passo 1: Serviço -->
+                                <div>
+                                    <label for="select-servico" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                                        1. Qual serviço você deseja?
+                                    </label>
+                                    <select id="select-servico" onchange="atualizarSimuladorBarbearia()" 
+                                            class="w-full bg-surface-base border border-surface-border rounded-xl px-4 py-3 text-sm text-white font-medium focus:outline-none focus:border-gold transition cursor-pointer">
+                                        <option value="Corte na Régua / Fade Premium">✂️ Corte na Régua / Fade com Visagismo</option>
+                                        <option value="Barboterapia com Toalha Quente">💈 Barboterapia Tradicional (Toalha Quente)</option>
+                                        <option value="Combo Supremo (Cabelo + Barba + Sobrancelha)">👑 Combo Supremo (Cabelo + Barba + Sobrancelha)</option>
+                                        <option value="Consultoria de Visagismo Masculino">🎯 Visagismo Masculino Personalizado</option>
+                                        <option value="Plano Mensal de Assinatura">🔄 Plano Mensal de Assinatura (a partir R$80)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Passo 2: De onde você vem? -->
+                                <div>
+                                    <label for="select-bairro" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                                        2. De qual região de Campinas você vem?
+                                    </label>
+                                    <select id="select-bairro" onchange="atualizarSimuladorBarbearia()" 
+                                            class="w-full bg-surface-base border border-surface-border rounded-xl px-4 py-3 text-sm text-white font-medium focus:outline-none focus:border-gold transition cursor-pointer">
+                                        <option value="Botafogo (R. Delfino Cintra / Andrade Neves)" data-tempo="2 a 5 min" data-dist="0.3 km">📍 Botafogo (Ao lado da barbearia / Andrade Neves)</option>
+                                        <option value="Cambuí" data-tempo="6 a 10 min" data-dist="1.8 km">📍 Cambuí (Próx. Av. Cel. Silva Telles / Centro de Convivência)</option>
+                                        <option value="Guanabara / Vila Itapura" data-tempo="5 a 8 min" data-dist="1.2 km">📍 Guanabara / Vila Itapura (Próx. Barão de Itapura)</option>
+                                        <option value="Taquaral" data-tempo="8 a 12 min" data-dist="2.5 km">📍 Taquaral (Próx. Lagoa / Av. Heitor Penteado)</option>
+                                        <option value="Centro de Campinas" data-tempo="4 a 7 min" data-dist="0.9 km">📍 Centro (Próx. Av. Francisco Glicério / Dr. Quirino)</option>
+                                        <option value="OUTRO_ENDERECO" data-tempo="A confirmar" data-dist="Sob consulta">📍 Outro bairro / endereço de Campinas e região...</option>
+                                    </select>
+                                </div>
+
+                                <!-- CAMPO DINÂMICO PARA OUTRO ENDEREÇO -->
+                                <div id="container-outro-endereco" class="hidden space-y-2 p-3.5 rounded-xl bg-surface-card border border-gold/30">
+                                    <label for="input-outro-endereco" class="block text-xs font-semibold text-gold uppercase tracking-wider">
+                                        <i class="fa-solid fa-map-location-dot mr-1"></i> Digite seu bairro ou cidade:
+                                    </label>
+                                    <input type="text" 
+                                           id="input-outro-endereco" 
+                                           oninput="atualizarSimuladorBarbearia()"
+                                           placeholder="Ex: Barão Geraldo, Nova Campinas, Sousas, Valinhos..." 
+                                           class="w-full bg-surface-base border border-surface-border rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-gold transition">
+                                    
+                                    <!-- AVISO DE ATENDIMENTO E ESTACIONAMENTO -->
+                                    <div class="p-2.5 rounded-lg bg-gold/10 border border-gold/20 text-amber-200 text-xs flex items-start gap-2.5 leading-relaxed">
+                                        <i class="fa-solid fa-car text-gold text-sm mt-0.5 shrink-0"></i>
+                                        <span>
+                                            <strong>Aviso de Chegada:</strong> Nossa equipe confirmará o melhor horário para evitar trânsito, enviará a localização exata e indicará a vaga de estacionamento pelo WhatsApp!
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Passo 3: Horário de Preferência -->
+                                <div>
+                                    <label for="select-horario" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                                        3. Melhor dia / período:
+                                    </label>
+                                    <select id="select-horario" onchange="atualizarSimuladorBarbearia()" 
+                                            class="w-full bg-surface-base border border-surface-border rounded-xl px-4 py-3 text-sm text-white font-medium focus:outline-none focus:border-gold transition cursor-pointer">
+                                        <option value="Hoje (Encaixe imediato ou fim de tarde)">⚡ Quero agendar para HOJE</option>
+                                        <option value="Amanhã (Manhã entre 09h e 12h)">☀️ Amanhã pela Manhã (09h às 12h)</option>
+                                        <option value="Amanhã (Tarde entre 14h e 19h)">🌆 Amanhã pela Tarde/Noite (14h às 19h)</option>
+                                        <option value="Final de Semana (Sexta ou Sábado)">📅 Final de Semana (Sexta ou Sábado)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Painel Dinâmico de Estimativa Morphix -->
+                                <div class="bg-surface-base/90 border border-surface-border rounded-xl p-3.5">
+                                    <div class="flex items-center justify-between text-xs pb-2 border-b border-surface-border/50">
+                                        <span class="text-slate-400">Tempo médio de deslocamento até nós:</span>
+                                        <span id="display-tempo" class="font-heading font-extrabold text-gold text-sm">2 a 5 min</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-xs pt-2">
+                                        <span class="text-slate-400">Distância da Rua Delfino Cintra, 377:</span>
+                                        <span id="display-dist" class="font-semibold text-slate-200 text-xs">~0.3 km</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Botão Dinâmico de WhatsApp -->
+                        <div class="mt-5 space-y-2">
+                            <a id="btn-whatsapp-simulador" 
+                               href="https://wa.me/5519994499949?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20na%20Papicarte." 
+                               target="_blank"
+                               class="w-full py-4 rounded-xl bg-gradient-to-r from-techGreen to-techGreen-dark text-white font-heading font-bold text-base flex items-center justify-center gap-2.5 shadow-glow-green hover:brightness-110 active:scale-95 transition">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>CONFIRMAR AGENDAMENTO NO WHATSAPP</span>
+                            </a>
+
+                            <p class="text-[11px] text-center text-slate-400">
+                                <i class="fa-solid fa-check-circle text-gold mr-1"></i> Resposta rápida • Sem fila com hora marcada
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. RUA A RUA: HIPERLOCALIZAÇÃO REAL DE CAMPINAS -->
+    <section class="border-y border-surface-border/80 bg-surface-base/60 py-6 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                
+                <div class="flex items-center gap-2 text-xs font-bold text-gold uppercase tracking-wider shrink-0">
+                    <i class="fa-solid fa-map-pin text-base"></i>
+                    <span>Fácil Acesso em Campinas:</span>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-300">
+                    <span class="bg-surface-card px-3 py-1.5 rounded-lg border border-surface-border">Rua Dr. Delfino Cintra</span>
+                    <span class="bg-surface-card px-3 py-1.5 rounded-lg border border-surface-border">Av. Andrade Neves</span>
+                    <span class="bg-surface-card px-3 py-1.5 rounded-lg border border-surface-border">Av. Barão de Itapura</span>
+                    <span class="bg-surface-card px-3 py-1.5 rounded-lg border border-surface-border">Bairro Cambuí</span>
+                    <span class="bg-surface-card px-3 py-1.5 rounded-lg border border-surface-border">Bairro Guanabara</span>
+                    <span class="bg-surface-card px-3 py-1.5 rounded-lg border border-surface-border">Vila Itapura</span>
+                    <span class="bg-surface-card px-3 py-1.5 rounded-lg border border-surface-border">Av. Orosimbo Maia</span>
+                    <span class="bg-surface-card px-3 py-1.5 rounded-lg border border-surface-border">Centro de Campinas</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SERVIÇOS TÉCNICOS & CLUBES DE ASSINATURA -->
+    <section id="servicos" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="max-w-3xl mb-14">
+            <span class="text-gold font-bold text-xs uppercase tracking-widest flex items-center gap-2">
+                <i class="fa-solid fa-scissors"></i> Excelência & Precisão em Cada Detalhe
+            </span>
+            <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                Serviços de Barbeiro com Técnicas Internacionais
+            </h2>
+            <p class="text-slate-400 mt-3 text-base leading-relaxed">
+                Fundada pelo barbeiro L. David S. com formação e técnica iniciada em Cuba, a Papicarte combina visagismo estético com navalha clássica e produtos premium.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <!-- Card 1: Corte na Régua -->
+            <div class="morphix-card rounded-2xl overflow-hidden flex flex-col justify-between">
+                <div>
+                    <div class="h-56 relative overflow-hidden bg-void">
+                        <img src="assets/img/barbearia_hero.jpg" 
+                             alt="Corte degradê fade clássico" 
+                             class="w-full h-full object-cover opacity-85 hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-void/90 border border-white/10 text-gold text-xs font-bold px-3 py-1.5 rounded-lg backdrop-blur-md">
+                            <i class="fa-solid fa-scissors mr-1"></i> Fade & Clássico
+                        </span>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="font-heading font-extrabold text-xl text-white">Corte na Régua com Visagismo</h3>
+                        <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                            Degradê limpo (Skin Fade, Mid Fade, Taper ou Clássico na tesoura). O corte é planejado considerando as linhas da mandíbula, testa e formato da cabeça.
+                        </p>
+
+                        <div class="mt-5 pt-5 border-t border-surface-border space-y-2.5 text-xs text-slate-300 font-medium">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techGreen"></i>
+                                <span>Pezinho milimétrico e acabamento a laser</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techGreen"></i>
+                                <span>Lavagem capilar e finalização com pomada matte</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techGreen"></i>
+                                <span>Cerveja gelada ou café expresso incluso</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0">
+                    <a href="https://wa.me/5519994499949?text=Ol%C3%A1,%20gostaria%20de%20agendar%20um%20Corte%20na%20Papicarte."
+                       target="_blank"
+                       class="w-full py-3 px-4 rounded-xl bg-surface-base border border-surface-border hover:border-gold/50 text-white font-semibold text-sm flex items-center justify-center gap-2 transition">
+                        <i class="fa-brands fa-whatsapp text-techGreen"></i> Agendar Corte
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: Barboterapia Tradicional -->
+            <div class="morphix-card rounded-2xl overflow-hidden flex flex-col justify-between">
+                <div>
+                    <div class="h-56 relative overflow-hidden bg-void">
+                        <img src="assets/img/barba_macro.jpg" 
+                             alt="Barboterapia com navalha clássica e toalha quente" 
+                             class="w-full h-full object-cover opacity-85 hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-void/90 border border-white/10 text-gold text-xs font-bold px-3 py-1.5 rounded-lg backdrop-blur-md">
+                            <i class="fa-solid fa-spa mr-1"></i> Ritual Relaxante
+                        </span>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="font-heading font-extrabold text-xl text-white">Barboterapia Tradicional</h3>
+                        <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                            O verdadeiro ritual do homem moderno. Aplicação de toalha quente aromatizada, creme emoliente, navalha descartável afiada e pós-barba refrescante sem ardência.
+                        </p>
+
+                        <div class="mt-5 pt-5 border-t border-surface-border space-y-2.5 text-xs text-slate-300 font-medium">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techGreen"></i>
+                                <span>Abertura dos poros com toalha aquecida</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techGreen"></i>
+                                <span>Alinhamento simétrico das bochechas e pescoço</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techGreen"></i>
+                                <span>Óleo nutritivo para hidratação profunda dos fios</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0">
+                    <a href="https://wa.me/5519994499949?text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20Barboterapia%20na%20Papicarte."
+                       target="_blank"
+                       class="w-full py-3 px-4 rounded-xl bg-surface-base border border-surface-border hover:border-gold/50 text-white font-semibold text-sm flex items-center justify-center gap-2 transition">
+                        <i class="fa-brands fa-whatsapp text-techGreen"></i> Agendar Barba
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: Planos de Assinatura Mensal -->
+            <div class="morphix-card rounded-2xl overflow-hidden flex flex-col justify-between">
+                <div>
+                    <div class="h-56 relative overflow-hidden bg-void flex items-center justify-center p-6 border-b border-surface-border">
+                        <div class="text-center space-y-2">
+                            <span class="text-gold font-bold text-xs uppercase tracking-widest block">Economia Inteligente</span>
+                            <div class="text-4xl font-heading font-black text-white">R$ 80<span class="text-sm font-normal text-slate-400">/mês</span></div>
+                            <p class="text-xs text-slate-300">Corte sempre alinhado toda semana sem susto no bolso</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="font-heading font-extrabold text-xl text-white">Planos de Assinatura Mensal</h3>
+                        <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                            Mantenha o cabelo e a barba impecáveis 30 dias por mês pagando uma mensalidade fixa. Ideal para executivos, noivos e homens que prezam pela imagem pessoal.
+                        </p>
+
+                        <div class="mt-5 pt-5 border-t border-surface-border space-y-2.5 text-xs text-slate-300 font-medium">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techGreen"></i>
+                                <span>Opções: Só Cabelo, Só Barba ou Combo Completo</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techGreen"></i>
+                                <span>Prioridade na agenda dos melhores horários</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-techGreen"></i>
+                                <span>Sem taxa de adesão ou fidelidade abusiva</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0">
+                    <a href="https://wa.me/5519994499949?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20os%20Planos%20Mensais%20da%20Papicarte."
+                       target="_blank"
+                       class="w-full py-3 px-4 rounded-xl bg-surface-base border border-surface-border hover:border-gold/50 text-white font-semibold text-sm flex items-center justify-center gap-2 transition">
+                        <i class="fa-brands fa-whatsapp text-techGreen"></i> Consultar Planos
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. DIFERENCIAIS DE EXPERIÊNCIA (SEM FILAS) -->
+    <section id="diferenciais" class="py-16 px-4 sm:px-8 border-y border-surface-border bg-surface-card/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                
+                <div class="lg:col-span-5 space-y-4">
+                    <span class="text-gold font-bold text-xs uppercase tracking-widest flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved"></i> O Padrão Papicarte
+                    </span>
+                    <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-white">
+                        Muito mais do que um corte: uma pausa no seu dia
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Nossa proposta é simples: respeito absoluto ao seu tempo e entrega impecável do seu estilo. Aqui você senta na cadeira na hora marcada e sai com a autoestima renovada.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-5">
+                    
+                    <div class="morphix-panel p-5 rounded-xl">
+                        <div class="text-gold text-2xl mb-2 font-heading font-black">01.</div>
+                        <h4 class="font-heading font-bold text-base text-white">Pontualidade Britânica</h4>
+                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+                            Seu tempo vale ouro. Trabalhamos com agenda rigorosamente controlada para você não perder horas sentado esperando.
+                        </p>
+                    </div>
+
+                    <div class="morphix-panel p-5 rounded-xl">
+                        <div class="text-gold text-2xl mb-2 font-heading font-black">02.</div>
+                        <h4 class="font-heading font-bold text-base text-white">Lâminas 100% Descartáveis</h4>
+                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+                            Higiene total com abertura do lacre da lâmina e toalhas esterilizadas na sua frente. Segurança médica e dermatológica.
+                        </p>
+                    </div>
+
+                    <div class="morphix-panel p-5 rounded-xl">
+                        <div class="text-gold text-2xl mb-2 font-heading font-black">03.</div>
+                        <h4 class="font-heading font-bold text-base text-white">Bebida Cortesia</h4>
+                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+                            Enquanto corta o cabelo ou aguarda seu amigo, deguste uma cerveja estupidamente gelada, café espresso ou água gelada.
+                        </p>
+                    </div>
+
+                    <div class="morphix-panel p-5 rounded-xl">
+                        <div class="text-gold text-2xl mb-2 font-heading font-black">04.</div>
+                        <h4 class="font-heading font-bold text-base text-white">Ambiente Climatizado & Wi-Fi</h4>
+                        <p class="text-slate-400 text-xs mt-1 leading-relaxed">
+                            Espaço moderno com boa música, ar-condicionado e tomadas rápidas para recarregar o celular ou trabalhar no notebook.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PROVA SOCIAL AUTÊNTICA (CAMPINAS GOOGLE REVIEWS) -->
+    <section id="avaliacoes" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Avaliações Reais no Google Maps</span>
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white">
+                    O que dizem os clientes de Campinas
+                </h2>
+            </div>
+
+            <div class="bg-surface-card border border-surface-border p-4 rounded-xl flex items-center gap-4 shrink-0 shadow-morphix-inset">
+                <div class="text-3xl font-heading font-black text-white">4.9</div>
+                <div>
+                    <div class="flex text-amber-400 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-xs text-slate-400 font-medium">Nota máxima na região do Botafogo</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            
+            <div class="morphix-card p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-full bg-gold/20 border border-gold/40 text-gold font-bold flex items-center justify-center text-sm font-heading">
+                                TG
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Thiago Guimarães</h4>
+                                <p class="text-xs text-slate-400">Morador do Cambuí • Campinas</p>
+                            </div>
+                        </div>
+                        <i class="fa-brands fa-google text-slate-500 text-lg"></i>
+                    </div>
+
+                    <div class="flex text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        "Melhor corte de Campinas disparado. O David entende muito de visagismo, olhou o formato do meu rosto e sugeriu um fade que mudou completamente meu visual. Atendimento nota 10 na Rua Delfino Cintra."
+                    </p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-surface-border flex items-center justify-between text-[11px] text-slate-500">
+                    <span>Corte Fade & Visagismo</span>
+                    <span class="text-techGreen font-semibold">✓ Verificado no Google</span>
+                </div>
+            </div>
+
+            <div class="morphix-card p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-full bg-emerald-600/20 border border-emerald-500/40 text-emerald-400 font-bold flex items-center justify-center text-sm font-heading">
+                                FL
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Felipe Lourenço</h4>
+                                <p class="text-xs text-slate-400">Botafogo • Próx. Andrade Neves</p>
+                            </div>
+                        </div>
+                        <i class="fa-brands fa-google text-slate-500 text-lg"></i>
+                    </div>
+
+                    <div class="flex text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        "Fiz a barboterapia com toalha quente pela primeira vez e virei fã. Não irritou a pele, a navalha deslizou suave e o ambiente é muito agradável. Já assinei o plano mensal para cortar a cada 15 dias."
+                    </p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-surface-border flex items-center justify-between text-[11px] text-slate-500">
+                    <span>Barboterapia & Assinatura</span>
+                    <span class="text-techGreen font-semibold">✓ Verificado no Google</span>
+                </div>
+            </div>
+
+            <div class="morphix-card p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-full bg-blue-600/20 border border-blue-500/40 text-blue-400 font-bold flex items-center justify-center text-sm font-heading">
+                                EA
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Eduardo Alencar</h4>
+                                <p class="text-xs text-slate-400">Guanabara • Campinas</p>
+                            </div>
+                        </div>
+                        <i class="fa-brands fa-google text-slate-500 text-lg"></i>
+                    </div>
+
+                    <div class="flex text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        "Pontualidade exemplar. Agendei pelo WhatsApp, cheguei no horário e sentei direto na cadeira. Bebi uma Heineken gelada, bati um papo bacana e saí com o corte na régua. Recomendo de olhos fechados!"
+                    </p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-surface-border flex items-center justify-between text-[11px] text-slate-500">
+                    <span>Combo Cabelo + Barba</span>
+                    <span class="text-techGreen font-semibold">✓ Verificado no Google</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. FAQ SANFONADO (ACCORDION) -->
+    <section class="py-16 px-4 sm:px-8 border-t border-surface-border bg-surface-base/50">
+        <div class="max-w-4xl mx-auto">
+            
+            <div class="text-center mb-12">
+                <span class="text-gold font-bold text-xs uppercase tracking-widest">Tire suas dúvidas</span>
+                <h2 class="font-heading text-3xl font-extrabold text-white mt-1">
+                    Perguntas Frequentes sobre a Papicarte
+                </h2>
+                <p class="text-slate-400 text-sm mt-2">Tudo o que você precisa saber antes da sua primeira visita.</p>
+            </div>
+
+            <div class="space-y-3.5" id="faq-container">
+                
+                <div class="morphix-card rounded-xl border border-surface-border overflow-hidden">
+                    <button type="button" onclick="toggleFaqBarbearia(this)" class="w-full p-5 text-left font-heading font-bold text-white flex justify-between items-center gap-4 hover:text-gold transition">
+                        <span>Preciso agendar com antecedência ou posso chegar direto?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-5 pb-5 text-slate-300 text-sm hidden border-t border-surface-border/50 pt-3">
+                        Para garantir zero espera e atendimento personalizado, priorizamos clientes com horário agendado pelo WhatsApp. No entanto, se você estiver passando pela Rua Delfino Cintra e tivermos cadeira livre, atenderemos você com todo o prazer!
+                    </div>
+                </div>
+
+                <div class="morphix-card rounded-xl border border-surface-border overflow-hidden">
+                    <button type="button" onclick="toggleFaqBarbearia(this)" class="w-full p-5 text-left font-heading font-bold text-white flex justify-between items-center gap-4 hover:text-gold transition">
+                        <span>Como funcionam os Planos Mensais de Assinatura?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-5 pb-5 text-slate-300 text-sm hidden border-t border-surface-border/50 pt-3">
+                        Com os planos a partir de R$ 80/mês, você garante o direito de cortar o cabelo ou alinhar a barba semanalmente/quinzenalmente com valor muito inferior ao avulso. O pagamento é mensal e você tem prioridade absoluta na escolha dos horários da agenda.
+                    </div>
+                </div>
+
+                <div class="morphix-card rounded-xl border border-surface-border overflow-hidden">
+                    <button type="button" onclick="toggleFaqBarbearia(this)" class="w-full p-5 text-left font-heading font-bold text-white flex justify-between items-center gap-4 hover:text-gold transition">
+                        <span>Tem onde estacionar perto da barbearia?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-5 pb-5 text-slate-300 text-sm hidden border-t border-surface-border/50 pt-3">
+                        Sim! A Rua Dr. Delfino Cintra conta com facilidade para estacionar nas imediações e opções de estacionamentos conveniados a menos de 50 metros do nosso espaço físico.
+                    </div>
+                </div>
+
+                <div class="morphix-card rounded-xl border border-surface-border overflow-hidden">
+                    <button type="button" onclick="toggleFaqBarbearia(this)" class="w-full p-5 text-left font-heading font-bold text-white flex justify-between items-center gap-4 hover:text-gold transition">
+                        <span>Quais são as formas de pagamento aceitas?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-5 pb-5 text-slate-300 text-sm hidden border-t border-surface-border/50 pt-3">
+                        Aceitamos Pix, Cartão de Crédito e Débito (todas as bandeiras) e dinheiro. Os planos mensais podem ser pagos via Pix recorrente ou cartão.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9. LOCALIZAÇÃO FÍSICA & MAPA -->
+    <section id="localizacao" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+            
+            <div class="lg:col-span-5 space-y-6">
+                <div>
+                    <span class="text-gold font-bold text-xs uppercase tracking-widest">Base Física em Campinas</span>
+                    <h2 class="font-heading text-3xl font-extrabold text-white mt-1">
+                        Fácil acesso no Bairro Botafogo
+                    </h2>
+                </div>
+
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Localização privilegiada na Rua Dr. Delfino Cintra, a poucos instantes da Av. Andrade Neves e Av. Barão de Itapura, com fácil ligação para os bairros Cambuí, Guanabara e Centro de Campinas.
+                </p>
+
+                <div class="space-y-4 pt-2 text-sm">
+                    <div class="flex items-start gap-3.5">
+                        <div class="w-9 h-9 rounded-lg bg-surface-card border border-surface-border flex items-center justify-center text-gold shrink-0 mt-0.5">
+                            <i class="fa-solid fa-map-pin"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white block font-heading">Endereço:</strong>
+                            <span class="text-slate-400">Rua Dr. Delfino Cintra, 377 - Botafogo</span>
+                            <span class="text-xs text-slate-500 block mt-0.5">Campinas - SP • CEP 13020-100</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3.5">
+                        <div class="w-9 h-9 rounded-lg bg-surface-card border border-surface-border flex items-center justify-center text-techGreen shrink-0 mt-0.5">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white block font-heading">Horário de Funcionamento:</strong>
+                            <span class="text-techGreen font-semibold">Terça a Sábado das 09h às 19h</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3.5">
+                        <div class="w-9 h-9 rounded-lg bg-surface-card border border-surface-border flex items-center justify-center text-gold shrink-0 mt-0.5">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white block font-heading">WhatsApp de Agendamentos:</strong>
+                            <a href="https://wa.me/5519994499949" class="text-white hover:text-gold font-bold text-base transition">
+                                (19) 99449-9949
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <a href="https://maps.google.com/?q=-22.9002622,-47.0651755" 
+                       target="_blank"
+                       class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-surface-card border border-surface-border text-white text-sm font-semibold hover:border-gold/50 transition">
+                        <i class="fa-solid fa-diamond-turn-right text-gold"></i>
+                        <span>Abrir Rota no Google Maps</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mapa Real -->
+            <div class="lg:col-span-7">
+                <div class="rounded-2xl overflow-hidden border border-surface-border shadow-2xl h-[400px] bg-surface-card relative">
+                    <iframe 
+                        title="Mapa de Localização Papicarte Barbearia Campinas"
+                        src="https://maps.google.com/maps?q=-22.9002622,-47.0651755&hl=pt-BR&z=16&output=embed" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; filter: contrast(105%) brightness(95%);" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    </main>
+
+    <!-- 10. FOOTER -->
+    <footer class="border-t border-surface-border bg-void py-12 px-4 sm:px-8 pb-28 sm:pb-12 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <div class="text-center md:text-left space-y-1">
+                <p class="font-heading font-extrabold text-sm text-white">PAPICARTE BARBEARIA</p>
+                <p>Rua Dr. Delfino Cintra, 377 - Botafogo, Campinas - SP</p>
+                <p class="text-slate-500 text-[11px]">Arte com Estilo • Visagismo Masculino e Cortes Premium</p>
+            </div>
+
+            <div class="flex items-center gap-6 text-sm font-medium">
+                <a href="#simulador" class="hover:text-gold transition">Agendamento</a>
+                <a href="#servicos" class="hover:text-gold transition">Serviços</a>
+                <a href="#diferenciais" class="hover:text-gold transition">Diferenciais</a>
+                <a href="#localizacao" class="hover:text-gold transition">Como Chegar</a>
+            </div>
+
+            <div class="text-center md:text-right">
+                <p>© 2026 Papicarte Barbearia. Todos os direitos reservados.</p>
+                <p class="text-slate-500 text-[11px] mt-0.5">Campinas - SP • Bairro Botafogo</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 11. BARRA FIXA MOBILE -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-void/95 border-t border-surface-border p-3 grid grid-cols-2 gap-2.5 backdrop-blur-xl shadow-2xl">
+        <a href="tel:+5519994499949" 
+           class="bg-surface-card border border-surface-border text-white font-heading font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-xs shadow-morphix-inset active:scale-95 transition">
+            <i class="fa-solid fa-phone text-gold"></i> LIGAR AGORA
+        </a>
+        <a href="https://wa.me/5519994499949?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20na%20Papicarte%20Barbearia." 
+           target="_blank"
+           class="bg-gradient-to-r from-techGreen to-techGreen-dark text-white font-heading font-extrabold py-3.5 rounded-xl flex items-center justify-center gap-2 text-xs shadow-glow-green active:scale-95 transition">
+            <i class="fa-brands fa-whatsapp text-lg"></i> AGENDAR (19)
+        </a>
+    </div>
+
+    <!-- 12. BOTÃO FLUTUANTE WHATSAPP DESKTOP -->
+    <a href="https://wa.me/5519994499949?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20na%20Papicarte%20Barbearia." 
+       target="_blank"
+       title="Agendar horário na Papicarte Barbearia"
+       class="hidden sm:flex fixed bottom-6 right-6 z-50 bg-gradient-to-r from-techGreen to-techGreen-dark text-white px-5 py-3.5 rounded-full items-center gap-3 shadow-glow-green hover:scale-105 active:scale-95 transition font-heading font-bold text-sm">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span>Agendamento no WhatsApp</span>
+    </a>
+
+    <!-- JAVASCRIPT DINÂMICO PARA INTERAÇÕES FRONTEND -->
+    <script>
+        function atualizarSimuladorBarbearia() {
+            const selectServico = document.getElementById('select-servico');
+            const selectBairro = document.getElementById('select-bairro');
+            const selectHorario = document.getElementById('select-horario');
+            const containerOutro = document.getElementById('container-outro-endereco');
+            const inputOutro = document.getElementById('input-outro-endereco');
+            
+            const selectedBairroOpt = selectBairro.options[selectBairro.selectedIndex];
+            const isOutroEndereco = (selectBairro.value === 'OUTRO_ENDERECO');
+
+            let tempo = selectedBairroOpt.getAttribute('data-tempo') || '5 a 10 min';
+            let dist = selectedBairroOpt.getAttribute('data-dist') || '1.0 km';
+            let bairroDescricao = selectBairro.value;
+
+            if (isOutroEndereco) {
+                containerOutro.classList.remove('hidden');
+                const enderecoDigitado = inputOutro.value.trim();
+                bairroDescricao = enderecoDigitado ? `Região: ${enderecoDigitado}` : 'Região a confirmar';
+                tempo = 'A confirmar pela equipe';
+                dist = 'Sob consulta (vaga garantida)';
+            } else {
+                containerOutro.classList.add('hidden');
+            }
+
+            document.getElementById('display-tempo').textContent = tempo;
+            document.getElementById('display-dist').textContent = dist.startsWith('~') ? dist : (dist === 'Sob consulta (vaga garantida)' ? dist : '~' + dist + ' (R. Delfino Cintra)');
+
+            const servico = selectServico.value;
+            const horario = selectHorario.value;
+
+            let mensagem = '';
+            if (isOutroEndereco) {
+                const endFinal = inputOutro.value.trim() || 'A informar no chat';
+                mensagem = `Olá! Gostaria de agendar um horário na Papicarte Barbearia:\n\n` +
+                           `✂️ *Serviço:* ${servico}\n` +
+                           `📍 *Minha Região:* ${endFinal}\n` +
+                           `📅 *Preferência:* ${horario}\n\n` +
+                           `Poderiam me confirmar as vagas disponíveis e se há vaga para estacionar?`;
+            } else {
+                mensagem = `Olá! Gostaria de agendar um horário na Papicarte Barbearia (Campinas):\n\n` +
+                           `✂️ *Serviço:* ${servico}\n` +
+                           `📍 *Estou no bairro:* ${bairroDescricao}\n` +
+                           `📅 *Preferência de Horário:* ${horario}\n\n` +
+                           `Poderiam me confirmar os horários livres para hoje/amanhã?`;
+            }
+
+            const linkWhatsApp = `https://wa.me/5519994499949?text=${encodeURIComponent(mensagem)}`;
+            document.getElementById('btn-whatsapp-simulador').href = linkWhatsApp;
+        }
+
+        function toggleFaqBarbearia(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            const isOpen = !content.classList.contains('hidden');
+
+            document.querySelectorAll('#faq-container > div > div').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('#faq-container button i').forEach(ic => ic.classList.remove('rotate-180'));
+
+            if (!isOpen) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            atualizarSimuladorBarbearia();
+        });
+    </script>
+
+</body>
+</html>

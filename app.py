@@ -1123,5 +1123,10 @@ HTML_TEMPLATE = """
 def home():
     return render_template_string(HTML_TEMPLATE, data=BUSINESS_DATA)
 
+@app.route("/papicarte")
+def papicarte():
+    with open("papicarte.html", "r", encoding="utf-8") as f:
+        return f.read()
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
