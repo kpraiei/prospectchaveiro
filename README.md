@@ -2,6 +2,9 @@
 
 Landing page de resposta direta e socorro emergencial para chaveiro 24 horas no Tatuapé e região (Jardim Anália Franco, Vila Gomes Cardim, Carrão, Mooca, Belém).
 
+🌐 **Site no ar (GitHub Pages):** [https://kpraiei.github.io/prospectchaveiro/](https://kpraiei.github.io/prospectchaveiro/)
+
+
 ## 🚀 Tecnologias Utilizadas
 - **Python / Flask** (Servidor Web)
 - **Tailwind CSS** (Design responsivo e utilitários modernos)
